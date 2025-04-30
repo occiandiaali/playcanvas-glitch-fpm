@@ -1,0 +1,33 @@
+import { createApp } from 'vue'
+import {createWebHistory, createRouter} from 'vue-router'
+import {createBootstrap} from 'bootstrap-vue-next'
+
+// Add the necessary CSS
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
+import './style.css'
+import App from './App.vue'
+
+import Home from './views/Home.vue'
+import About from './views/About.vue'
+import Profile from './views/Profile.vue'
+import Play from './views/Play.vue'
+import Diary from './views/Diary.vue'
+import NotFound from './views/NotFound.vue'
+
+const routes = [
+    { path: "/", component: Home },
+    { path: "/about", component: About },
+    { path: "/diary", component: Diary },
+    { path: "/profile", component: Profile },
+    { path: "/play", component: Play },
+    { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
+  ];
+
+  const router = createRouter({
+    history: createWebHistory(),
+    routes,
+  })
+
+createApp(App).use(createBootstrap()).use(router).mount('#app')
