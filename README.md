@@ -1,7 +1,8 @@
 # Vue3, PlayCanvas, Glitch (blindate.com) WIP
 
 ## Demo  
-https://github.com/user-attachments/assets/13366858-9dca-448a-b534-3c52082c5bfd
+https://github.com/user-attachments/assets/af43fd2f-4b74-44df-9aa1-9bbeb6061cf7
+
 
 
 
