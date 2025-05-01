@@ -6,16 +6,9 @@ import Navbar from "./components/Navbar.vue";
 
 <template>
   <Navbar />
-  <main>
+  <main id="content">
     <RouterView />
   </main>
 </template>
 
-<style scoped>
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style scoped></style>
