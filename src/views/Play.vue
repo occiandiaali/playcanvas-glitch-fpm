@@ -28,8 +28,9 @@ onMounted(() => {
     <p id="placeholder" v-if="!loaded">
       If your Experience doesn't begin shortly, ensure your internet is up!
     </p>
-    <p id="w-s">W or S to move forwards or backwards</p>
-    <p id="a-d">A or D to turn left or right</p>
+    <p class="w">W to go forward</p>
+    <p class="s">S to go backward</p>
+    <p id="a-d">A to turn left & D to turn right</p>
   </section>
 </template>
 
@@ -62,9 +63,19 @@ section {
   height: 90vh;
 }
 
-#w-s {
+.w {
   position: absolute;
-  bottom: 10%;
+  bottom: 20%;
+  left: 2%;
+  font-size: small;
+  color: white;
+  border: 0.6px solid white;
+  padding: 0.3rem;
+  opacity: 0.3;
+}
+.s {
+  position: absolute;
+  bottom: 14%;
   left: 2%;
   font-size: small;
   color: white;
@@ -74,7 +85,7 @@ section {
 }
 #a-d {
   position: absolute;
-  bottom: 4%;
+  bottom: 6%;
   left: 2%;
   font-size: small;
   color: white;
