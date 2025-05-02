@@ -16,7 +16,9 @@
           ><RouterLink to="/about" class="link">About</RouterLink></BNavItem
         >
         <BNavItem
-          ><RouterLink to="/diary" class="link">Diary</RouterLink></BNavItem
+          ><RouterLink to="/experiences" class="link"
+            >Experiences</RouterLink
+          ></BNavItem
         >
       </BNavbarNav>
       <!-- Right aligned nav items -->
