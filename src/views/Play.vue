@@ -14,7 +14,9 @@ onMounted(() => {
 <template>
   <section>
     <BButton variant="outline-success" id="outline-btn"
-      ><RouterLink to="/diary" style="text-decoration: none; color: darkgreen"
+      ><RouterLink
+        to="/experiences"
+        style="text-decoration: none; color: darkgreen"
         >Leave</RouterLink
       ></BButton
     >

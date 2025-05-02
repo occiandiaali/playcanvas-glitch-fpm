@@ -57,6 +57,14 @@ section {
             <BCol>{{ row.item.isActive }}</BCol>
           </BRow>
 
+          <BButton
+            v-if="row.item.isActive"
+            variant="outline-success"
+            size="sm"
+            @click="router.push('/play')"
+            >Create or Join Room</BButton
+          >
+
           <!-- <BButton size="sm" @click="row.toggleDetails">Hide Details</BButton> -->
         </BCard>
       </template>
@@ -65,6 +73,9 @@ section {
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const fields = ["first_name", "last_name", "show_details"];
 const items = [
   { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
@@ -75,6 +86,15 @@ const items = [
     first_name: "Geneva",
     last_name: "Wilson",
     _showDetails: true,
+  },
+  { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
+  { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
+  { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
+  {
+    isActive: false,
+    age: 89,
+    first_name: "Zuricj",
+    last_name: "Wilson",
   },
   { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
 ];

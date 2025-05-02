@@ -13,13 +13,13 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Profile from './views/Profile.vue'
 import Play from './views/Play.vue'
-import Diary from './views/Diary.vue'
+import Experiences from './views/Experiences.vue'
 import NotFound from './views/NotFound.vue'
 
 const routes = [
     { path: "/", component: Home },
     { path: "/about", component: About },
-    { path: "/diary", component: Diary },
+    { path: "/experiences", component: Experiences },
     { path: "/profile", component: Profile },
     { path: "/play", component: Play },
     { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
