@@ -2,48 +2,56 @@
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
+import ModalComponent from "../components/ModalComponent.vue";
+
 import mockUserData from "../data/mockUserData";
 
-const modal = ref(false);
-const router = useRouter();
+const selectedItem = ref(null);
+const isModalOpen = ref(false);
 
-function confirmAction(ok: any) {
-  ok();
-  router.push({ path: "/room/55", replace: true });
-}
+const openModal = (item) => {
+  selectedItem.value = item;
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+};
+
+const router = useRouter();
 </script>
 
 <template>
   <section class="m-2">
-    <BModal v-model="modal" title="Example User details modal" centered>
-      <p>Are you sure you want to date this User?</p>
-      <template #modal-footer="{ ok, cancel }">
-        <BButton variant="info" @click="confirmAction(ok)">OK</BButton>
-        <BButton variant="danger" @click="cancel()">Cancel</BButton>
-      </template>
-    </BModal>
     <BContainer class="bv-example-row">
+      <!-- Modal -->
+      <ModalComponent
+        :item="selectedItem"
+        v-if="isModalOpen"
+        @close="closeModal"
+      />
+      <!-- End Modal -->
+
       <BRow>
         <BCol v-for="user in mockUserData" :key="user.id">
-          <BCard
-            :title="user.title"
-            :img-src="user.img"
-            :img-alt="user.author"
-            img-top
-            img-height="120"
-            img-width="140"
-            tag="article"
-            style="max-width: 20rem; padding: 1rem; margin-bottom: 1rem"
-            class="card"
-          >
-            <BCardText>
-              Some quick example text to build on the card title for
-              {{ user.author }}
-            </BCardText>
-            <BButton @click="modal = !modal" variant="primary"
-              >Go somewhere</BButton
-            >
-          </BCard>
+          <div id="user-div">
+            <BAvatar :src="user.img" size="120px" />
+            <div id="info-row">
+              <span>{{ user.title }}</span> by
+              <span>{{ user.author }}</span>
+            </div>
+            <div id="action-row">
+              <BButton class="BButton" variant="outline-success"
+                >Calendar</BButton
+              >
+              <BButton
+                class="BButton"
+                @click="openModal(user)"
+                variant="outline-success"
+                >Details</BButton
+              >
+            </div>
+          </div>
         </BCol>
       </BRow>
     </BContainer>
@@ -51,10 +59,30 @@ function confirmAction(ok: any) {
 </template>
 
 <style scoped>
+#action-row {
+  flex-direction: row;
+}
+.BButton {
+  margin: 6px;
+}
 /* .card {
   margin: 2px;
   width: 12rem;
 } */
+#info-row {
+  flex-direction: row;
+}
+#user-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  height: 16rem;
+  padding: 2px;
+
+  /* border: 1px solid black; */
+}
 #wrapper {
   height: 100vh;
   width: 100vw;

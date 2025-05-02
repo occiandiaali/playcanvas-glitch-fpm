@@ -4,6 +4,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/notabee.webp",
       title: "Bed",
       author: "swabdesign",
+     voice: "/public/audio/alien-talking.mp3"
     },
     {
         id: 2,
@@ -11,6 +12,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/14thWarrior-Cartoon-Elephant.webp",
       title: "Books",
       author: "Pavel Nekoranec",
+      voice: "/public/audio/crazy-robot.mp3"
     },
     {
         id: 3,
@@ -18,6 +20,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/japanesedoctor.webp",
       title: "Sink",
       author: "Charles Deluvio",
+      voice: "/public/audio/french-canadian-woman.mp3"
     },
     {
         id: 4,
@@ -25,6 +28,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Cartoonhead7.webp",
       title: "Kitchen",
       author: "Christian Mackie",
+      voice: "/public/audio/man-apologizes.mp3"
     },
     {
         id: 5,
@@ -32,6 +36,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Devil_001_Head_Cartoon.webp",
       title: "Blinds",
       author: "Darren Richardson",
+      voice: "/public/audio/dramatic-female.mp3"
     },
     {
         id: 6,
@@ -39,6 +44,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/painted_face.webp",
       title: "Chairs",
       author: "Taylor Simpson",
+      voice: "/public/audio/weird-talking.mp3"
     },
     {
         id: 7,
@@ -46,6 +52,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/FunDraw_dot_com_Cartoon_Cat_In_Rainbow_Socks.webp",
       title: "Laptop",
       author: "Ben Kolde",
+      voice: "/public/audio/woman-crying.mp3"
     },
     {
         id: 8,
@@ -53,6 +60,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/wsnaccad_gloria_the_architect.webp",
       title: "Doors",
       author: "Philipp Berndt",
+      voice: "/public/audio/alien-talking.mp3"
     },
     {
         id: 9,
@@ -60,6 +68,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/googley-eye-birds.webp",
       title: "Coffee",
       author: "Jen P.",
+      voice: "/public/audio/crazy-robot.mp3"
     },
     {
         id: 10,
@@ -67,6 +76,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/010b.webp",
       title: "Storage",
       author: "Douglas Sheppard",
+      voice: "/public/audio/french-canadian-woman.mp3"
     },
     {
         id: 11,
@@ -74,6 +84,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/1274533168.webp",
       title: "Candle",
       author: "Fi Bell",
+      voice: "/public/audio/dramatic-female.mp3"
     },
     {
         id: 12,
@@ -81,6 +92,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Cartoon_Butterfly_01.webp",
       title: "Coffee table",
       author: "Hutomo Abrianto",
+      voice: "/public/audio/man-apologizes.mp3"
     },
   ];
 
