@@ -2,7 +2,7 @@
   <BNavbar
     v-b-color-mode="'dark'"
     toggleable="lg"
-    sticky="true"
+    sticky="top"
     class="w-100"
     variant="dark"
   >
@@ -33,10 +33,15 @@
             <em>Account</em>
           </template>
           <BDropdownItem
-            ><RouterLink to="/profile" class="link"
+            ><RouterLink to="/profile" class="link" id="profile-link"
               >Profile</RouterLink
-            ></BDropdownItem
-          >
+            >
+            <BAvatar
+              variant="info"
+              src="https://placekitten.com/100/100"
+              size="sm"
+            />
+          </BDropdownItem>
           <BDropdownItem
             ><RouterLink to="/" class="link"
               >Sign Out</RouterLink
@@ -55,5 +60,8 @@
 }
 .link:hover {
   color: brown;
+}
+#profile-link {
+  margin-right: 8px;
 }
 </style>
