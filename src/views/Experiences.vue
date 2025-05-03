@@ -139,8 +139,11 @@ const items = [
 
 const environOptions = [
   { text: "Please, choose an environment", value: null },
-  { text: "Resort Lobby", value: "Resort Lobby" },
-  { text: "Geometric shapes scenario", value: "Geometric shapes scenario" },
+  { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
+  {
+    text: "Geometric shapes scenario",
+    value: "https://playcanv.as/p/sertSRJP/",
+  },
   { text: "Another type of environment", value: "Another type of environment" },
 ];
 const selectedEnviron = ref(null);
@@ -161,11 +164,16 @@ const handleOkay = () => {
   } else {
     console.log(`Setting duration: ${selectedTimer.value}`);
     roomStore.setDuration(selectedTimer.value);
+
+    roomStore.setRoomName(
+      `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
+    );
+    roomStore.setRoomUrl(selectedEnviron.value);
     try {
       router.push({
         name: "experience",
         params: {
-          id: `${selectedEnviron.value.toLocaleLowerCase()}`,
+          id: `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`,
         },
       });
     } catch (error) {

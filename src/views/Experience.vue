@@ -7,6 +7,7 @@ const route = useRoute();
 const store = useRoomStore();
 
 const myIframe = ref(null);
+const iframeSrc = ref(null);
 const loaded = ref(false);
 const durationOfExperience = ref(0);
 
@@ -15,6 +16,8 @@ onMounted(() => {
   console.log(`Duration: ${store.duration}`);
 
   durationOfExperience.value = store.duration / 60000;
+
+  iframeSrc.value = store.roomUrl;
 
   setTimeout(() => {
     loaded.value = true;
@@ -33,10 +36,16 @@ onMounted(() => {
     >
     <!-- <p id="param-info">Duration: {{ route.params.id }} + {{ route.params.duration }}</p> -->
     <p id="param-info">Duration: {{ durationOfExperience }} mins</p>
-    <iframe
+    <!-- <iframe
       ref="myIframe"
       class="embed-responsive-item"
       src="https://playcanv.as/p/sertSRJP/"
+      allow="camera; microphone; xr-spatial-tracking; fullscreen;autoplay"
+      allowfullscreen
+    ></iframe> -->
+    <iframe
+      class="embed-responsive-item"
+      :src="iframeSrc"
       allow="camera; microphone; xr-spatial-tracking; fullscreen;autoplay"
       allowfullscreen
     ></iframe>
@@ -60,7 +69,7 @@ onMounted(() => {
   position: absolute;
   top: 3%;
   right: 8%;
-  color: darkolivegreen;
+  color: rgb(172, 231, 69);
 }
 iframe {
   display: block;
