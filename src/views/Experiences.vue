@@ -61,7 +61,11 @@ section {
             v-if="row.item.isActive"
             variant="outline-success"
             size="sm"
-            @click="router.push('/play')"
+            @click="
+              router.push(
+                `/experiences/${row.item.first_name.toLocaleLowerCase()}_${row.item.last_name.toLocaleLowerCase()}`
+              )
+            "
             >Create or Join Room</BButton
           >
 
@@ -81,13 +85,13 @@ const items = [
   { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
   { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
   {
-    isActive: false,
+    isActive: true,
     age: 89,
     first_name: "Geneva",
     last_name: "Wilson",
     _showDetails: true,
   },
-  { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
+  { isActive: false, age: 38, first_name: "Jami", last_name: "Carney" },
   { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
   { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
   {
