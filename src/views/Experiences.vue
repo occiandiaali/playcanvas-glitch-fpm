@@ -57,37 +57,75 @@ section {
             <BCol>{{ row.item.isActive }}</BCol>
           </BRow>
 
-          <BButton
+          <!-- <BButton
             v-if="row.item.isActive"
             variant="outline-success"
             size="sm"
-            @click="router.push('/play')"
+            @click="
+              router.push(
+                `/experiences/${row.item.first_name.toLocaleLowerCase()}_${row.item.last_name.toLocaleLowerCase()}`
+              )
+            "
             >Create or Join Room</BButton
+          > -->
+          <BButton
+            v-if="row.item.isActive"
+            variant="outline-info"
+            size="sm"
+            @click="modalRef = !modalRef"
+            >Select</BButton
           >
 
           <!-- <BButton size="sm" @click="row.toggleDetails">Hide Details</BButton> -->
         </BCard>
       </template>
     </BTable>
+    <BModal
+      centered
+      ok-only
+      ok-variant="outline-success"
+      v-model="modalRef"
+      title="Create or Join an Experience"
+      @ok="handleOkay"
+    >
+      <h4>Choose the environment</h4>
+      <BFormSelect v-model="selectedEnviron" :options="environOptions" />
+      <h4 style="margin: 6px">Choose duration of Experience</h4>
+      <BFormSelect v-model="selectedTimer" :options="timerOptions" />
+      <!-- <BButton
+        style="margin: 12px"
+        variant="outline-success"
+        size="sm"
+        @click="
+          router.push(`/experiences/${selectedEnviron.toLocaleLowerCase()}`)
+        "
+        >Create or Join</BButton
+      > -->
+    </BModal>
   </section>
 </template>
 
 <script setup lang="ts">
+import { BButton, BFormSelect } from "bootstrap-vue-next";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useRoomStore } from "../stores/roomStore";
 
+const modalRef = ref(false);
+const roomStore = useRoomStore();
 const router = useRouter();
 const fields = ["first_name", "last_name", "show_details"];
 const items = [
   { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
   { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
   {
-    isActive: false,
+    isActive: true,
     age: 89,
     first_name: "Geneva",
     last_name: "Wilson",
-    _showDetails: true,
+    //  _showDetails: true,
   },
-  { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
+  { isActive: false, age: 38, first_name: "Jami", last_name: "Carney" },
   { isActive: true, age: 40, first_name: "Dickerson", last_name: "Macdonald" },
   { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
   {
@@ -98,6 +136,51 @@ const items = [
   },
   { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" },
 ];
+
+const environOptions = [
+  { text: "Please, choose an environment", value: null },
+  { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
+  {
+    text: "Geometric shapes scenario",
+    value: "https://playcanv.as/p/sertSRJP/",
+  },
+  { text: "Another type of environment", value: "Another type of environment" },
+];
+const selectedEnviron = ref(null);
+
+const timerOptions = [
+  { text: "Please, choose a duration", value: null },
+  { text: "5 minutes", value: "300000" },
+  { text: "10 minutes", value: "600000" },
+  { text: "15 minutes", value: "900000" },
+];
+const selectedTimer = ref(null);
+
+const handleOkay = () => {
+  if (selectedTimer.value === null || selectedEnviron.value === null) {
+    alert("You must select an environment and a duration!");
+    // return;
+    //  router.push(`/experiences/${selectedEnviron.value.toLocaleLowerCase()}`);
+  } else {
+    console.log(`Setting duration: ${selectedTimer.value}`);
+    roomStore.setDuration(selectedTimer.value);
+
+    roomStore.setRoomName(
+      `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
+    );
+    roomStore.setRoomUrl(selectedEnviron.value);
+    try {
+      router.push({
+        name: "experience",
+        params: {
+          id: `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`,
+        },
+      });
+    } catch (error) {
+      console.log(`${selectedEnviron.value} = null`);
+    }
+  }
+};
 </script>
 
 <style scoped>
