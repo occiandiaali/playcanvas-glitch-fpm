@@ -1,18 +1,24 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useRoomStore } from "../stores/roomStore";
 
 const route = useRoute();
+const store = useRoomStore();
 
 const myIframe = ref(null);
 const loaded = ref(false);
+const durationOfExperience = ref(0);
 
 onMounted(() => {
   console.log(`Params: ${route.params.id}`);
+  console.log(`Duration: ${store.duration}`);
+
+  durationOfExperience.value = store.duration / 60000;
 
   setTimeout(() => {
     loaded.value = true;
-  }, 6000);
+  }, 8000);
 });
 </script>
 
@@ -25,7 +31,8 @@ onMounted(() => {
         >Leave</RouterLink
       ></BButton
     >
-    <p id="param-info">Room created by {{ route.params.id }}</p>
+    <!-- <p id="param-info">Duration: {{ route.params.id }} + {{ route.params.duration }}</p> -->
+    <p id="param-info">Duration: {{ durationOfExperience }} mins</p>
     <iframe
       ref="myIframe"
       class="embed-responsive-item"
