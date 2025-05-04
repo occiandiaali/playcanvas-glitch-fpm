@@ -46,7 +46,7 @@ section {
       </template>
 
       <template #row-details="row">
-        <BCard>
+        <BCard class="bCardDetails">
           <BRow class="mb-2">
             <BCol sm="3" class="text-sm-right"><b>Age:</b></BCol>
             <BCol>{{ row.item.age }}</BCol>
@@ -69,6 +69,7 @@ section {
             >Create or Join Room</BButton
           > -->
           <BButton
+            id="select-btn"
             v-if="row.item.isActive"
             variant="outline-info"
             size="sm"
@@ -139,12 +140,14 @@ const items = [
 
 const environOptions = [
   { text: "Please, choose an environment", value: null },
-  { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
+  // { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
+  { text: "Resort Lobby", value: "https://playcanv.as/p/XkL7IH8y/" },
   {
     text: "Geometric shapes scenario",
-    value: "https://playcanv.as/p/sertSRJP/",
+    // value: "https://playcanv.as/p/sertSRJP/",
+    value: "https://playcanv.as/p/kKRucDEI/",
   },
-  { text: "Another type of environment", value: "Another type of environment" },
+  { text: "MiniFlat interior", value: "https://playcanv.as/p/c1o59wX5/" },
 ];
 const selectedEnviron = ref(null);
 
@@ -184,6 +187,14 @@ const handleOkay = () => {
 </script>
 
 <style scoped>
+.bCardDetails {
+  position: relative;
+}
+#select-btn {
+  position: absolute;
+  top: 25%;
+  right: 40%;
+}
 #bTable {
   /* width: 100vw; */
   height: 100vh;
