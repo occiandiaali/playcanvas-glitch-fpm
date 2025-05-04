@@ -10,8 +10,8 @@ import Navbar from "./components/Navbar.vue";
     <RouterView />
   </main>
   <footer>
-    <p>Creator: Occian F Diaali</p>
-    <p><a href="mailto:occiandiaali@gmail.com">occiandiaali@gmail.com</a></p>
+    Made by Occian F Diaali -
+    <a href="mailto:occiandiaali@gmail.com">occiandiaali@gmail.com</a>
   </footer>
 </template>
 
@@ -19,6 +19,8 @@ import Navbar from "./components/Navbar.vue";
 footer {
   text-align: center;
   padding: 4px;
+  height: 36px;
+  font-size: 14px;
   background-color: #333;
   color: white;
 }

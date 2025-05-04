@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section>
+  <section id="iframe-section">
     <BButton variant="outline-success" id="outline-btn"
       ><RouterLink
         to="/experiences"
@@ -52,13 +52,31 @@ onMounted(() => {
     <p id="placeholder" v-if="!loaded">
       If your Experience doesn't begin shortly, ensure your internet is up!
     </p>
-    <p class="w">W to go forward</p>
-    <p class="s">S to go backward</p>
-    <p id="a-d">A to turn left & D to turn right</p>
+    <p class="w">Use arrow keys to move</p>
+    <p class="s">Tap to hide cursor and pan</p>
+    <!-- <p id="a-d">ESC to show cursor</p> -->
+    <!-- <div id="arrows-png">
+      <p>Use arrow keys</p>
+      <img
+        src="/public/images/arrow-keys.png"
+        alt="use arrow keys to move"
+        id="arrows"
+      />
+    </div> -->
   </section>
 </template>
 
 <style scoped>
+#arrows {
+  width: 120px;
+  height: 120px;
+}
+#arrows-png {
+  position: absolute;
+  bottom: 6%;
+  left: 2%;
+  padding: 0.3rem;
+}
 #outline-btn {
   position: absolute;
   top: 4%;
@@ -69,7 +87,7 @@ onMounted(() => {
   position: absolute;
   top: 3%;
   right: 8%;
-  color: rgb(172, 231, 69);
+  color: white;
 }
 iframe {
   display: block;
@@ -87,10 +105,10 @@ iframe {
   left: 24%;
   font-size: larger;
 }
-section {
+#iframe-section {
   position: relative;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
 }
 
 .w {
@@ -101,7 +119,7 @@ section {
   color: white;
   border: 0.6px solid white;
   padding: 0.3rem;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .s {
   position: absolute;
@@ -111,7 +129,7 @@ section {
   color: white;
   border: 0.6px solid white;
   padding: 0.3rem;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 #a-d {
   position: absolute;
