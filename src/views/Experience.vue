@@ -92,7 +92,7 @@ onMounted(() => {
 iframe {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 500px;
   border: none;
   overflow: hidden;
   /* position: absolute;
@@ -108,7 +108,8 @@ iframe {
 #iframe-section {
   position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 500px;
+  overflow: hidden;
 }
 
 .w {

@@ -23,7 +23,7 @@ const router = useRouter();
 
 <template>
   <section class="m-2">
-    <BContainer class="bv-example-row">
+    <BContainer fluid class="p-4 bg-dark">
       <!-- Modal -->
       <ModalComponent
         :item="selectedItem"
@@ -33,8 +33,8 @@ const router = useRouter();
       <!-- End Modal -->
 
       <BRow>
-        <BCol v-for="user in mockUserData" :key="user.id">
-          <div id="user-div">
+        <BCol v-for="user in mockUserData" :key="user.id" cols="3">
+          <!-- <div id="user-div">
             <BAvatar :src="user.img" size="120px" />
             <div id="info-row">
               <span>{{ user.title }}</span> by
@@ -42,6 +42,20 @@ const router = useRouter();
             </div>
             <div id="action-row">
               <BButton class="BButton" variant="outline-success"
+                >Calendar</BButton
+              >
+              <BButton
+                class="BButton"
+                @click="openModal(user)"
+                variant="outline-success"
+                >Details</BButton
+              >
+            </div>
+          </div> -->
+          <div class="image-container mb-3">
+            <BImg fluid :src="user.img" id="img" :alt="user.author" />
+            <div id="action-row">
+              <BButton class="BButton" variant="outline-warning"
                 >Calendar</BButton
               >
               <BButton
@@ -60,7 +74,15 @@ const router = useRouter();
 
 <style scoped>
 #action-row {
+  display: flex;
   flex-direction: row;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 .BButton {
   margin: 6px;
@@ -69,6 +91,20 @@ const router = useRouter();
   margin: 2px;
   width: 12rem;
 } */
+#img {
+  width: 160px;
+  height: 160px;
+}
+.image-container {
+  display: grid;
+  position: relative;
+  width: 300px;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  margin: 6.5px;
+  background-color: rgb(128, 125, 125);
+}
 #info-row {
   flex-direction: row;
 }
