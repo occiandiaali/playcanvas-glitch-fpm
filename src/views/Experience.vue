@@ -6,14 +6,22 @@ import { useRoomStore } from "../stores/roomStore";
 const route = useRoute();
 const store = useRoomStore();
 
-const myIframe = ref(null);
+const linkIFrame = ref(null);
 const iframeSrc = ref(null);
 const loaded = ref(false);
+const iframeLoaded = ref(false);
 const durationOfExperience = ref(0);
 
 onMounted(() => {
   console.log(`Params: ${route.params.id}`);
   console.log(`Duration: ${store.duration}`);
+
+  console.log(`B4 iframeLoaded: ${iframeLoaded.value}`);
+
+  linkIFrame.onload = function () {
+    iframeLoaded.value = true;
+    console.log(`iframeLoaded: ${iframeLoaded.value}`);
+  };
 
   durationOfExperience.value = store.duration / 60000;
 
@@ -43,12 +51,15 @@ onMounted(() => {
       allow="camera; microphone; xr-spatial-tracking; fullscreen;autoplay"
       allowfullscreen
     ></iframe> -->
+
     <iframe
+      ref="linkIFrame"
       class="embed-responsive-item"
       :src="iframeSrc"
       allow="camera; microphone; xr-spatial-tracking; fullscreen;autoplay"
       allowfullscreen
     ></iframe>
+
     <p id="placeholder" v-if="!loaded">
       If your Experience doesn't begin shortly, ensure your internet is up!
     </p>
@@ -81,8 +92,14 @@ onMounted(() => {
   position: absolute;
   top: 4%;
   left: 4%;
-  z-index: 999;
+  z-index: 9;
 }
+/* #overlay {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  z-index: 100;
+} */
 #param-info {
   position: absolute;
   top: 3%;
