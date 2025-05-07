@@ -5,6 +5,7 @@ import { ref } from "vue";
 import ModalComponent from "../components/ModalComponent.vue";
 
 import mockUserData from "../data/mockUserData";
+import { BFormInput } from "bootstrap-vue-next";
 
 const selectedItem = ref(null);
 const isModalOpen = ref(false);
@@ -19,6 +20,10 @@ const closeModal = () => {
 };
 
 const router = useRouter();
+let currentDate = new Date();
+let year = currentDate.getFullYear();
+let month = currentDate.getMonth() + 1;
+let day = currentDate.getDate();
 </script>
 
 <template>
@@ -55,9 +60,20 @@ const router = useRouter();
           <div class="image-container mb-3">
             <BImg fluid :src="user.img" id="img" :alt="user.author" />
             <div id="action-row">
-              <BButton class="BButton" variant="outline-warning"
-                >Calendar</BButton
-              >
+              <!-- <BButton class="BButton" variant="outline-warning">
+ 
+              </BButton> -->
+              <!-- <label for="start">Start date:</label> -->
+              <!-- <input
+                type="date"
+                id="start"
+                name="trip-start"
+                value="2018-12-31"
+                min=""
+                max="2018-12-31"
+              /> -->
+              <BFormInput min="2025-05-07" type="date" />
+
               <BButton
                 class="BButton"
                 @click="openModal(user)"
@@ -87,6 +103,20 @@ const router = useRouter();
 .BButton {
   margin: 6px;
 }
+/* label {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+} */
+input {
+  margin: 0.4rem;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+/* input,
+label {
+  margin: 0.4rem 0;
+} */
 /* .card {
   margin: 2px;
   width: 12rem;

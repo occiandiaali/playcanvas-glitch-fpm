@@ -1,36 +1,3 @@
-<!-- <script setup></script>
-
-<template>
-  <section>
-    <h1>Diary</h1>
-    <BListGroup>
-      <BListGroupItem href="#some-link">Awesome link</BListGroupItem>
-      <BListGroupItem href="#" active>Link with active state</BListGroupItem>
-      <BListGroupItem
-        ><RouterLink to="/play" class="link"
-          >Let's Play</RouterLink
-        ></BListGroupItem
-      >
-      <BListGroupItem href="#foobar" disabled>Disabled link</BListGroupItem>
-    </BListGroup>
-  </section>
-</template>
-
-<style scoped>
-.link {
-  text-decoration: none;
-  color: rgb(24, 24, 2);
-}
-.link:hover {
-  color: rgb(22, 3, 3);
-}
-section {
-  padding: 1rem;
-  width: 100%;
-  height: 100vh;
-}
-</style> -->
-
 <template>
   <section id="bTable">
     <BTable :items="items" :fields="fields" striped responsive="sm">
@@ -112,6 +79,8 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useRoomStore } from "../stores/roomStore";
 
+// Playcanvas Glitch server: https://clear-quirky-split.glitch.me/
+
 const modalRef = ref(false);
 const roomStore = useRoomStore();
 const router = useRouter();
@@ -141,23 +110,32 @@ const items = [
 const environOptions = [
   { text: "Please, choose an environment", value: null },
   // { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
-  { text: "Resort Lobby", value: "https://playcanv.as/p/XkL7IH8y/" },
-  { text: "Glitch Served", value: "https://clear-quirky-split.glitch.me/" },
-  { text: "Another Glitch", value: "https://sweet-fork-pillow.glitch.me/" },
+  // { text: "Resort Lobby", value: "https://playcanv.as/p/XkL7IH8y/" },
   {
-    text: "CodeSandBox",
-    //  value: "https://codesandbox.io/embed/zphhv3?embed=1&view=preview",
-
-    value:
-      "https://codesandbox.io/embed/zphhv3?view=preview&module=%2Fsrc%2Findex.html&hidenavigation=1",
+    text: "Flatland Glitch",
+    value: "https://coherent-glitter-hornet.glitch.me/",
   },
+  {
+    text: "Miniflat interior",
+    value: "https://playcanv.as/p/c1o59wX5/",
+  },
+  // { text: "Glitch Served", value: "https://clear-quirky-split.glitch.me/" },
+  // { text: "Another Glitch", value: "https://sweet-fork-pillow.glitch.me/" },
+  // {
+  //   text: "CodeSandBox",
+  //   //  value: "https://codesandbox.io/embed/zphhv3?embed=1&view=preview",
+
+  //   value:
+  //     "https://codesandbox.io/embed/zphhv3?view=preview&module=%2Fsrc%2Findex.html&hidenavigation=1",
+  // },
   {
     text: "Geometric shapes scenario",
     // value: "https://playcanv.as/p/sertSRJP/",
+    //value: "https://playcanv.as/p/kKRucDEI/",
     value: "https://playcanv.as/p/kKRucDEI/",
   },
-  { text: "MiniFlat interior", value: "https://playcanv.as/p/c1o59wX5/" },
-  { text: "Colyseus MiniFlat", value: "https://playcanv.as/p/dYSpZWTE/" },
+  // { text: "MiniFlat interior", value: "https://playcanv.as/p/c1o59wX5/" },
+  // { text: "Colyseus MiniFlat", value: "https://playcanv.as/p/dYSpZWTE/" },
 ];
 const selectedEnviron = ref(null);
 
@@ -182,14 +160,19 @@ const handleOkay = () => {
       `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
       // `${selectedEnviron.value}`
     );
-    // roomStore.setRoomUrl(selectedEnviron.value);
-    roomStore.setRoomUrl(selectedEnviron.value.toLocaleLowerCase());
+    roomStore.setRoomUrl(selectedEnviron.value);
     try {
+      // roomStore.setRoomUrl(
+      //   selectedEnviron.text !== "Flatland Glitch"
+      //     ? `${selectedEnviron.value.toLocaleLowerCase()}`
+      //     : `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
+      // );
       router.push({
         name: "experience",
         params: {
-          //  id: `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`,
-          id: `${selectedEnviron.value.toLocaleLowerCase()}`,
+          //id: `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`,
+          // id: `${selectedEnviron.value.toLocaleLowerCase()}`,
+          id: roomStore.roomName,
         },
       });
     } catch (error) {
