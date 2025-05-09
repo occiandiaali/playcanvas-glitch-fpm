@@ -4,7 +4,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/notabee.webp",
       title: "Bed",
       author: "swabdesign",
-     voice: "/audio/alien-talking.mp3"
+     voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Justice_Genesis_first_30_seconds_tight.wav"//"/audio/alien-talking.mp3"
     },
     {
         id: 2,
@@ -12,7 +12,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/14thWarrior-Cartoon-Elephant.webp",
       title: "Books",
       author: "Pavel Nekoranec",
-      voice: "/audio/crazy-robot.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/crazy-robot.mp3"
     },
     {
         id: 3,
@@ -20,7 +20,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/japanesedoctor.webp",
       title: "Sink",
       author: "Charles Deluvio",
-      voice: "/audio/french-canadian-woman.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/sine_wave_32768_128.wav"//"/audio/french-canadian-woman.mp3"
     },
     {
         id: 4,
@@ -28,7 +28,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Cartoonhead7.webp",
       title: "Kitchen",
       author: "Christian Mackie",
-      voice: "/audio/man-apologizes.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/2500_hz_sine_2_seconds.wav"//"/audio/man-apologizes.mp3"
     },
     {
         id: 5,
@@ -36,7 +36,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Devil_001_Head_Cartoon.webp",
       title: "Blinds",
       author: "Darren Richardson",
-      voice: "/audio/dramatic-female.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/dramatic-female.mp3"
     },
     {
         id: 6,
@@ -44,7 +44,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/painted_face.webp",
       title: "Chairs",
       author: "Taylor Simpson",
-      voice: "/audio/weird-talking.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/sine_wave_32768_128.wav"//"/audio/weird-talking.mp3"
     },
     {
         id: 7,
@@ -52,7 +52,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/FunDraw_dot_com_Cartoon_Cat_In_Rainbow_Socks.webp",
       title: "Laptop",
       author: "Ben Kolde",
-      voice: "/audio/woman-crying.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/woman-crying.mp3"
     },
     {
         id: 8,
@@ -60,7 +60,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/wsnaccad_gloria_the_architect.webp",
       title: "Doors",
       author: "Philipp Berndt",
-      voice: "/audio/alien-talking.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/2500_hz_sine_2_seconds.wav"//"/audio/alien-talking.mp3"
     },
     {
         id: 9,
@@ -68,7 +68,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/googley-eye-birds.webp",
       title: "Coffee",
       author: "Jen P.",
-      voice: "/audio/crazy-robot.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/crazy-robot.mp3"
     },
     {
         id: 10,
@@ -76,7 +76,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/010b.webp",
       title: "Storage",
       author: "Douglas Sheppard",
-      voice: "/audio/french-canadian-woman.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Justice_Genesis_first_30_seconds_tight.wav" //"/audio/french-canadian-woman.mp3"
     },
     {
         id: 11,
@@ -84,7 +84,7 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/1274533168.webp",
       title: "Candle",
       author: "Fi Bell",
-      voice: "/audio/dramatic-female.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Justice_Genesis_first_third_sec_tight.wav"//"/audio/dramatic-female.mp3"
     },
     {
         id: 12,
@@ -92,8 +92,55 @@ const mockUserData = [
       img: "https://publicdomainvectors.org/tn_img/Cartoon_Butterfly_01.webp",
       title: "Coffee table",
       author: "Hutomo Abrianto",
-      voice: "/audio/man-apologizes.mp3"
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Justice_Genesis_first_30_seconds_tight.wav"//"/audio/man-apologizes.mp3"
     },
+       {
+        id: 13,
+      img: "https://publicdomainvectors.org/tn_img/notabee.webp",
+      title: "Bed",
+      author: "swabdesign",
+     voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Justice_Genesis_first_30_seconds_tight.wav"//"/audio/alien-talking.mp3"
+    },
+    {
+        id: 14,
+      // img: "https://images.unsplash.com/photo-1525097487452-6278ff080c31",
+      img: "https://publicdomainvectors.org/tn_img/14thWarrior-Cartoon-Elephant.webp",
+      title: "Books",
+      author: "Pavel Nekoranec",
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/crazy-robot.mp3"
+    },
+    {
+        id: 15,
+      // img: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
+      img: "https://publicdomainvectors.org/tn_img/japanesedoctor.webp",
+      title: "Sink",
+      author: "Charles Deluvio",
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/sine_wave_32768_128.wav"//"/audio/french-canadian-woman.mp3"
+    },
+    {
+        id: 16,
+      //  img: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3",
+      img: "https://publicdomainvectors.org/tn_img/Cartoonhead7.webp",
+      title: "Kitchen",
+      author: "Christian Mackie",
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/2500_hz_sine_2_seconds.wav"//"/audio/man-apologizes.mp3"
+    },
+    {
+        id: 17,
+      //  img: "https://images.unsplash.com/photo-1588436706487-9d55d73a39e3",
+      img: "https://publicdomainvectors.org/tn_img/Devil_001_Head_Cartoon.webp",
+      title: "Blinds",
+      author: "Darren Richardson",
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/Lee_Smolin_Physics_Envy_and_Economic_Theory-cWn86ESze6M_mono_1st_few_seconds.wav"//"/audio/dramatic-female.mp3"
+    },
+    {
+        id: 18,
+      //  img: "https://images.unsplash.com/photo-1574180045827-681f8a1a9622",
+      img: "https://publicdomainvectors.org/tn_img/painted_face.webp",
+      title: "Chairs",
+      author: "Taylor Simpson",
+      voice: "https://cdn.jsdelivr.net/npm/sample-audio-files@1.0.7/media/sine_wave_32768_128.wav"//"/audio/weird-talking.mp3"
+    }
   ];
 
 export default mockUserData

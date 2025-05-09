@@ -5,7 +5,6 @@ import { ref } from "vue";
 import ModalComponent from "../components/ModalComponent.vue";
 
 import mockUserData from "../data/mockUserData";
-import { BFormInput } from "bootstrap-vue-next";
 
 const selectedItem = ref(null);
 const isModalOpen = ref(false);
@@ -20,72 +19,46 @@ const closeModal = () => {
 };
 
 const router = useRouter();
-let currentDate = new Date();
-let year = currentDate.getFullYear();
-let month = currentDate.getMonth() + 1;
-let day = currentDate.getDate();
 </script>
 
 <template>
-  <section class="m-2">
-    <BContainer fluid class="p-4 bg-dark">
-      <!-- Modal -->
-      <ModalComponent
-        :item="selectedItem"
-        v-if="isModalOpen"
-        @close="closeModal"
-      />
-      <!-- End Modal -->
+  <BContainer fluid>
+    <!-- Modal -->
+    <ModalComponent
+      :item="selectedItem"
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
+    <!-- End Modal -->
 
-      <BRow>
-        <BCol v-for="user in mockUserData" :key="user.id" cols="3">
-          <!-- <div id="user-div">
-            <BAvatar :src="user.img" size="120px" />
-            <div id="info-row">
-              <span>{{ user.title }}</span> by
-              <span>{{ user.author }}</span>
-            </div>
-            <div id="action-row">
-              <BButton class="BButton" variant="outline-success"
-                >Calendar</BButton
-              >
-              <BButton
-                class="BButton"
+    <BRow>
+      <BCol
+        v-for="user in mockUserData"
+        :key="user.id"
+        class="col-sm-2 col-md-3 col-6"
+      >
+        <div class="image-container">
+          <BImg fluid :src="user.img" id="img" :alt="user.author" />
+          <div id="action-row">
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#1f1f1f"
                 @click="openModal(user)"
-                variant="outline-success"
-                >Details</BButton
               >
-            </div>
-          </div> -->
-          <div class="image-container mb-3">
-            <BImg fluid :src="user.img" id="img" :alt="user.author" />
-            <div id="action-row">
-              <!-- <BButton class="BButton" variant="outline-warning">
- 
-              </BButton> -->
-              <!-- <label for="start">Start date:</label> -->
-              <!-- <input
-                type="date"
-                id="start"
-                name="trip-start"
-                value="2018-12-31"
-                min=""
-                max="2018-12-31"
-              /> -->
-              <BFormInput min="2025-05-07" type="date" />
-
-              <BButton
-                class="BButton"
-                @click="openModal(user)"
-                variant="outline-success"
-                >Details</BButton
-              >
-            </div>
+                <path
+                  d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"
+                />
+              </svg>
+            </p>
           </div>
-        </BCol>
-      </BRow>
-    </BContainer>
-  </section>
+        </div>
+      </BCol>
+    </BRow>
+  </BContainer>
 </template>
 
 <style scoped>
@@ -100,55 +73,25 @@ let day = currentDate.getDate();
   padding: 10px 20px;
   cursor: pointer;
 }
-.BButton {
-  margin: 6px;
-}
-/* label {
-  display: block;
-  font: 1rem "Fira Sans", sans-serif;
-} */
-input {
-  margin: 0.4rem;
-  border-radius: 4px;
-  padding: 4px;
-}
 
-/* input,
-label {
-  margin: 0.4rem 0;
-} */
-/* .card {
-  margin: 2px;
-  width: 12rem;
-} */
 #img {
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
 }
 .image-container {
   display: grid;
   position: relative;
-  width: 300px;
-  height: 280px;
+  width: 180px;
+  height: 180px;
   justify-content: center;
   align-items: center;
-  margin: 6.5px;
+  flex-wrap: wrap;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  border-radius: 12px;
   background-color: rgb(128, 125, 125);
 }
-#info-row {
-  flex-direction: row;
-}
-#user-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 16rem;
-  height: 16rem;
-  padding: 2px;
 
-  /* border: 1px solid black; */
-}
 #wrapper {
   height: 100vh;
   width: 100vw;

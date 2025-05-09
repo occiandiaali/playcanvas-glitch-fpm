@@ -16,6 +16,7 @@
         typesetting industry. It has been the industry's standard placeholder
         text since the 1500s, when an unknown printer scrambled a galley of type
         to create a type specimen book.
+        <BFormInput min="2025-05-07" type="date" size="sm" />
       </p>
 
       <figure>
@@ -32,6 +33,12 @@
 
 <script setup>
 import { ref } from "vue";
+import { BFormInput } from "bootstrap-vue-next";
+
+let currentDate = new Date();
+let year = currentDate.getFullYear();
+let month = currentDate.getMonth() + 1;
+let day = currentDate.getDate();
 
 defineProps(["item"]);
 const show = ref(false);
@@ -85,6 +92,6 @@ img {
   justify-content: center;
   align-items: center;
   width: 72vw;
-  height: 68%;
+  height: 74%;
 }
 </style>

@@ -112,6 +112,10 @@ const environOptions = [
   // { text: "Resort Lobby", value: "https://playcanv.as/b/1f209108" },
   // { text: "Resort Lobby", value: "https://playcanv.as/p/XkL7IH8y/" },
   {
+    text: "Babylon Playground",
+    value: "https://playground.babylonjs.com/full.html#R95W5R#1",
+  },
+  {
     text: "Flatland Glitch",
     value: "https://coherent-glitter-hornet.glitch.me/",
   },
@@ -157,7 +161,9 @@ const handleOkay = () => {
     roomStore.setDuration(selectedTimer.value);
 
     roomStore.setRoomName(
-      `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
+      selectedEnviron.value.text === "Babylon Playground"
+        ? `${selectedEnviron.value.toLocaleLowerCase().substring(43)}`
+        : `${selectedEnviron.value.toLocaleLowerCase().substring(22)}`
       // `${selectedEnviron.value}`
     );
     roomStore.setRoomUrl(selectedEnviron.value);
